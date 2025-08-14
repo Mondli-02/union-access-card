@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ZEHSSCWU Card Access</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-...snip..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header" role="banner">
+      <div class="logo-title">
+        <h1>ZEHSSCWU Card Access</h1>
+      </div>
+      <p class="tagline">Access, View, and Download Your Union Card</p>
+    </header>
+
+    <main>
+      <section class="login-card" aria-labelledby="lookup-heading">
+        <h2 id="lookup-heading">Lookup Member Card</h2>
+
+        <div class="input-group">
+          <i class="fas fa-id-badge" aria-hidden="true"></i>
+          <input
+            id="memberID"
+            type="text"
+            required
+            placeholder=" "
+            autocomplete="username"
+            aria-label="Member ID"
+          />
+          <label for="memberID">Enter your Member ID</label>
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock" aria-hidden="true"></i>
+          <input
+            id="password"
+            type="password"
+            required
+            placeholder=" "
+            autocomplete="current-password"
+            aria-label="Password"
+          />
+          <label for="password">Enter your password</label>
+        </div>
+
+        <button
+          id="lookupBtn"
+          class="primary-btn"
+          type="button"
+          aria-pressed="false"
+        >
+          <i class="fas fa-search"></i> Lookup
+        </button>
+
+        <div
+          id="loading"
+          class="loading"
+          style="display: none"
+          aria-live="polite"
+        >
+          <div class="spinner" role="status" aria-hidden="true"></div>
+          <span class="loading-text">Getting your card...</span>
+        </div>
+
+        <div id="message" class="message" aria-live="polite"></div>
+
+        <div
+          id="cardArea"
+          class="card-area"
+          style="display: none"
+          aria-hidden="true"
+        >
+          <img id="cardImage" class="card-image" alt="Member Card" />
+          <a id="downloadLink" class="download-btn" download>
+            <i class="fas fa-download"></i> Download Card
+            <span class="btn-ripple"></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="info-panels" aria-label="information panels">
+        <div class="panel">
+          <h3>Card Usage Guide</h3>
+          <p>
+            Present your digital card at union events or when accessing union
+            services. Keep it ready on your phone.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Card Security Tips</h3>
+          <p>
+            Do not share your Member ID or password. If you suspect compromise,
+            contact support immediately to reset access.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Common Issues</h3>
+          <ul class="compact-list">
+            <li>Card not found → use contact support.</li>
+            <li>Wrong password → check caps lock and try again.</li>
+            <li>Still stuck → use the Contact panel.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Contact</h3>
+          <div class="contact-icons">
+            <a
+              href="tel:0292881392"
+              class="contact-item"
+              data-detail="Tel: 0292881392"
+            >
+              <i class="fas fa-phone"></i>
+            </a>
+            <a
+              href="mailto:dmoyo3574@gmail.com"
+              class="contact-item"
+              data-detail="Email: dmoyo3574@gmail.com"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a
+              href="https://wa.me/263777217619"
+              target="_blank"
+              rel="noopener"
+              class="contact-item"
+              data-detail="WhatsApp: +263777217619"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <p class="small-note">
+            If you are having trouble using the system, feel free to contact
+            support by tapping on any of the icons above.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Union Card Lookup System © 2025 | Built by Mondlie</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

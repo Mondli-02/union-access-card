@@ -1,0 +1,430 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --primary: #0f4c81;
+  --accent: #4895ef;
+  --white-trans: rgba(255, 255, 255, 0.9);
+  --whatsapp: #25d366;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(135deg, #0f4c81 0%, #00a8cc 100%);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+}
+
+.logo-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #fff;
+}
+
+.tagline {
+  margin-top: 0.4rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+main {
+  flex: 1;
+  padding: 1.25rem 1rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  text-align: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+.login-card h2 {
+  color: var(--white-trans);
+  margin-bottom: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input-group {
+  position: relative;
+  margin: 0.9rem 0;
+}
+
+.input-group i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.78rem 0.85rem 0.78rem 2.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  outline: none;
+  font-family: "Nunito", sans-serif;
+}
+
+.input-group label {
+  position: absolute;
+  left: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  transition: all 0.22s ease;
+  padding: 0 0.25rem;
+  border-radius: 3px;
+  pointer-events: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  background: transparent;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 2rem;
+  font-size: 0.82rem;
+  color: var(--primary);
+  background: var(--glass-bg);
+  font-weight: 700;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 0.78rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: transform 0.15s ease, background 0.2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  background: #3579c7;
+}
+
+.primary-btn:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.loading {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 700;
+  gap: 0.5rem;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid var(--primary);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.message {
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.card-area {
+  margin-top: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.45s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-area.show {
+  opacity: 1;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.download-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.16s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.download-btn i {
+  width: 18px;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background: #093256;
+}
+
+.download-btn:active {
+  transform: scale(0.96);
+}
+
+.download-btn .btn-ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.45s ease, height 0.45s ease;
+}
+
+.download-btn:hover .btn-ripple {
+  width: 240%;
+  height: 480%;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.56rem 0.9rem;
+  border-radius: 8px;
+  background: var(--whatsapp);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  background: #1ebe57;
+}
+
+.info-panels {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.6rem auto 0;
+  max-width: 1100px;
+}
+
+.panel {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  text-align: left;
+}
+
+.panel h3 {
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0.45rem;
+  text-align: center;
+}
+
+.panel p,
+.panel li {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.compact-list {
+  list-style: disc;
+  margin-left: 1.05rem;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.contact-item {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  position: relative;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-3px);
+}
+
+.contact-item::after {
+  content: attr(data-detail);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.contact-item:hover::after {
+  opacity: 1;
+  bottom: -45px;
+}
+
+.contact-panel .small-note {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 1.6rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 880px) {
+  .info-panels {
+    gap: 0.9rem;
+    padding: 0 0.6rem;
+  }
+  .panel {
+    width: 48%;
+  }
+  .login-card {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    max-width: 98%;
+    padding: 1.4rem;
+    border-radius: 12px;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+  }
+  .input-group input {
+    padding: 0.68rem 0.7rem 0.68rem 2.3rem;
+  }
+  .input-group label {
+    left: 3rem;
+  }
+  .info-panels {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 0.6rem;
+  }
+  .panel {
+    width: 100%;
+  }
+  .card-image {
+    max-width: 320px;
+  }
+  .primary-btn {
+    font-size: 0.96rem;
+  }
+}
